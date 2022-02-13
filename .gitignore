@@ -1,6 +1,5 @@
 # Prerequisites
 *.d
-*.DS
 # Object files
 *.o
 *.ko
@@ -50,3 +49,6 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# Ignore Mac DS_Store files
+.DS_Store
