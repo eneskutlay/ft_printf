@@ -6,7 +6,7 @@
 /*   By: ekutlay <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 00:56:14 by ekutlay           #+#    #+#             */
-/*   Updated: 2022/02/15 02:01:01 by ekutlay          ###   ########.fr       */
+/*   Updated: 2022/02/15 03:55:28 by ekutlay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ int	ft_printnbr(int nb)
 	if (nb >= 0 && nb <= 9)
 		res += ft_printchar(nb + '0');
 	else if (nb == -2147483648)
-		res += (int)write(1, -2147483648, 11);
+		res += (int)write(1, "-2147483648", 11);
 	else if (nb < 0)
 	{
-		res += (int) write(1, '-', 1);
+		res += (int) write(1, "-", 1);
 		res += ft_printnbr(-nb);
 	}
 	else
@@ -63,7 +63,7 @@ int	ft_printforhex(unsigned int nb, int loru)
 		res += ft_printchar(base[nb]);
 	else if (nb < 0)
 	{
-		res += (int) write(1, '-', 1);
+		res += (int) write(1, "-", 1);
 		res += ft_printforhex(-nb, loru);
 	}
 	else
@@ -97,6 +97,6 @@ int	ft_printpointerforhex(unsigned long nb)
 
 	res = 0;
 	res += ft_printstr("0x");
-	ret += ft_printvoidpointer(nb);
+	res += ft_printvoidpointer(nb);
 	return (res);
 }
