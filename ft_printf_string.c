@@ -6,7 +6,7 @@
 /*   By: ekutlay <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 00:23:15 by ekutlay           #+#    #+#             */
-/*   Updated: 2022/02/15 03:53:58 by ekutlay          ###   ########.fr       */
+/*   Updated: 2022/02/15 05:01:16 by ekutlay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_strlen(char *s)
 
 	i = 0;
 	if (!s)
-		return ('\0');
+		return (0);
 	while (s[i] != '\0')
 		i++;
 	return (i);
@@ -29,7 +29,7 @@ int	ft_printchar(char c)
 	int	result;
 
 	result = 0;
-	result = write(1, &c, 1);
+	result += write(1, &c, 1);
 	return (result);
 }
 

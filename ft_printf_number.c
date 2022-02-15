@@ -6,7 +6,7 @@
 /*   By: ekutlay <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 00:56:14 by ekutlay           #+#    #+#             */
-/*   Updated: 2022/02/15 03:55:28 by ekutlay          ###   ########.fr       */
+/*   Updated: 2022/02/15 05:18:29 by ekutlay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_printnbr(int nb)
 	if (nb >= 0 && nb <= 9)
 		res += ft_printchar(nb + '0');
 	else if (nb == -2147483648)
-		res += (int)write(1, "-2147483648", 11);
+		res += (int) write(1, "-2147483648", 11);
 	else if (nb < 0)
 	{
 		res += (int) write(1, "-", 1);
@@ -44,7 +44,7 @@ int	ft_printunsigned(unsigned int nb)
 	else
 	{
 		res += ft_printnbr(nb / 10);
-		res += ft_printnbr(nb & 10);
+		res += ft_printnbr(nb % 10);
 	}
 	return (res);
 }
@@ -55,11 +55,11 @@ int	ft_printforhex(unsigned int nb, int loru)
 	char	*base;
 
 	res = 0;
-	if (loru)
+	if (!loru)
 		base = "0123456789abcdef";
 	else
 		base = "0123456789ABCDEF";
-	if (nb > 0 && nb <= (unsigned int)ft_strlen(base) -1)
+	if (nb >= 0 && nb <= (unsigned int)ft_strlen(base) - 1)
 		res += ft_printchar(base[nb]);
 	else if (nb < 0)
 	{
@@ -69,7 +69,7 @@ int	ft_printforhex(unsigned int nb, int loru)
 	else
 	{
 		res += ft_printforhex(nb / ft_strlen(base), loru);
-		res += ft_printforhex(nb & ft_strlen(base), loru);
+		res += ft_printforhex(nb % ft_strlen(base), loru);
 	}
 	return (res);
 }

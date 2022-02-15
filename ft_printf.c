@@ -6,7 +6,7 @@
 /*   By: ekutlay <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 03:11:24 by ekutlay           #+#    #+#             */
-/*   Updated: 2022/02/15 03:53:21 by ekutlay          ###   ########.fr       */
+/*   Updated: 2022/02/15 04:54:24 by ekutlay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_parser(char *format, va_list *arg)
 	else if (*format == 'i' || *format == 'd')
 		choose += ft_printnbr(va_arg(*arg, int));
 	else if (*format == 'u')
-		choose += (unsigned int)ft_printunsigned(va_arg(*arg, int));
+		choose += (unsigned int) ft_printunsigned(va_arg(*arg, int));
 	else if (*format == 'x')
 		choose += ft_printforhex(va_arg(*arg, unsigned int), 0);
 	else if (*format == 'X')
@@ -47,7 +47,7 @@ int	ft_printf(const char *format, ...)
 	i = 0;
 	res = 0;
 	if (!format)
-		return ('\0');
+		return (0);
 	va_start(arg, format);
 	while (format[i])
 	{
